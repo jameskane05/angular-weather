@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<!-- by James Kane
+     on Jan. 24, 2016 -->
+
+<!--[if lt IE 7]>      <html lang="en" ng-app="angular-weather" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="angular-weather" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="angular-weather" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="angular-weather" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>angular-weather</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body ng-controller="HomeController">
+  <h1>angular-weather</h1>
+  <h2>Utilizing The Weather Channel API</h2>
+  <p>In this example I've created a simple Angular.js app which submits a user's zip code via http request to The Weather Channel's free online API. This returns a JSON object with a ton of useful information we can access and repurpose for use in maps layers or weather forecasting, including temperature, precipitation, wind, even latitude and longitude. The raw output is below.
+  <div>Zip: <input type="text" ng-model="zip" title="zip"></div><br>
+  <button ng-click="getWeather(zip)">Check Weather</button><br><br>
+
+  <div class="json-response" ng-hide="!georesponse">
+    <img class="weather-img" src="{{ weather_img }}">
+    <h2>{{ city }}, {{ state }}</h2>
+    <h3>Weather Channel API geolookup response:</h3>
+    <pre>
+      {{ georesponse | json }}
+    </pre>
+  </div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
