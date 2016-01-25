@@ -24,8 +24,11 @@
   <h1>angular-weather</h1>
   <h2>Utilizing The Weather Channel API</h2>
   <p>In this example I've created a simple Angular.js app which submits a user's zip code via http request to The Weather Channel's free online API. This returns a JSON object with a ton of useful information we can access and repurpose for use in maps layers or weather forecasting, including temperature, precipitation, wind, even latitude and longitude. The raw output is below.
-  <div>Zip: <input type="text" ng-model="zip" title="zip"></div><br>
-  <button ng-click="getWeather(zip)">Check Weather</button><br><br>
+  <div>
+      <input type="text" ng-model="zip" placeholder="Enter your zip">
+      <button ng-click="getWeather(zip)">Check Weather</button>
+  </div>
+  <br><br>
 
   <div class="json-response" ng-hide="!georesponse">
     <img class="weather-img" src="{{ weather_img }}">
